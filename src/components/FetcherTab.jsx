@@ -164,24 +164,28 @@ export default function FetcherTab({
 
   // Helper to determine duplicate badge color & description
   const getDuplicateStatus = (prob) => {
-    if (prob.acceptedSubmissions > 1) {
-      const pct = Math.min(100, Math.round((prob.acceptedSubmissions / prob.totalSubmissions) * 100));
+    const acceptedCount = Number(prob.acceptedSubmissions) || 0;
+    
+    if (acceptedCount === 0) {
       return {
-        text: `${pct}% Duplicate`,
-        color: pct >= 75
-          ? "bg-rose-50 text-rose-700 border border-rose-200 font-bold"
-          : "bg-amber-50 text-amber-700 border border-amber-200 font-semibold"
+        text: "Not Submitted",
+        color: "bg-slate-100 text-slate-400 border border-slate-200"
       };
     }
-    if (prob.totalSubmissions <= 1) {
+    if (acceptedCount === 1) {
       return {
         text: "0% Duplicate (100% Unique)",
         color: "bg-emerald-50 text-emerald-700 border border-emerald-200"
       };
     }
+    
+    const totalCount = Number(prob.totalSubmissions) || 1;
+    const pct = Math.min(100, Math.round((acceptedCount / totalCount) * 100));
     return {
-      text: "Normal Submission Path",
-      color: "bg-slate-100 text-slate-700 border border-slate-200"
+      text: `${pct}% Duplicate`,
+      color: pct >= 75
+        ? "bg-rose-50 text-rose-700 border border-rose-200 font-bold"
+        : "bg-amber-50 text-amber-700 border border-amber-200 font-semibold"
     };
   };
 
