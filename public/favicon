@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Master Steel-Blue Metallic Border Gradients for 3D Chisel Bevel -->
+    <linearGradient id="bezel-outer" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4b5e78" />
+      <stop offset="30%" stop-color="#1e2c3f" />
+      <stop offset="50%" stop-color="#344861" />
+      <stop offset="70%" stop-color="#0f1926" />
+      <stop offset="100%" stop-color="#2a3d54" />
+    </linearGradient>
+    
+    <linearGradient id="bezel-highlight" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#9fc2eb" />
+      <stop offset="25%" stop-color="#2b476b" />
+      <stop offset="50%" stop-color="#ffffff" />
+      <stop offset="75%" stop-color="#14243b" />
+      <stop offset="100%" stop-color="#7da8db" />
+    </linearGradient>
+    
+    <!-- Core Colored Background Gradients -->
+    <linearGradient id="emerald-core" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="40%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#044e36" />
+    </linearGradient>
+    
+    <linearGradient id="royal-core" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="40%" stop-color="#1d4ed8" />
+      <stop offset="100%" stop-color="#0f1e4a" />
+    </linearGradient>
+    
+    <!-- Metallic Silver Gradient for Code Symbol -->
+    <linearGradient id="silver-code" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="50%" stop-color="#e2e8f0" />
+      <stop offset="100%" stop-color="#94a3b8" />
+    </linearGradient>
+    
+    <!-- Glossy diagonal reflection overlay gradient -->
+    <linearGradient id="gloss-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35" />
+      <stop offset="40%" stop-color="#ffffff" stop-opacity="0.15" />
+      <stop offset="70%" stop-color="#ffffff" stop-opacity="0.0" />
+    </linearGradient>
+
+    <!-- Honeycomb repeating grid pattern -->
+    <pattern id="honeycomb" width="18" height="31.18" patternUnits="userSpaceOnUse" patternTransform="scale(0.8)">
+      <path d="M9,0 L18,5.19 L18,15.59 L9,20.78 L0,15.59 L0,5.19 Z M9,31.18 L18,25.99 L18,15.59 L9,20.78 L0,15.59 L0,25.99 Z" 
+            fill="none" stroke="#ffffff" stroke-width="1.0" stroke-opacity="0.12" />
+    </pattern>
+
+    <!-- Drop shadows for extra pop -->
+    <filter id="outer-shadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#030712" flood-opacity="0.45" />
+    </filter>
+  </defs>
+
+  <!-- Complete transparent background. No bounding boxes or backgrounds outside the shield path. -->
+  <g filter="url(#outer-shadow)">
+    <!-- Layer 1: Outer Metallic Rim (Bezel Outer) -->
+    <path d="M256,12 C385,12 485,45 500,155 C500,325 385,465 256,500 C127,465 12,325 12,155 C27,45 127,12 256,12 Z" fill="url(#bezel-outer)" />
+    
+    <!-- Layer 2: Inner Highlighted Gloss Rim (Bezel Highlight) -->
+    <path d="M256,22 C372,22 462,52 476,152 C476,305 372,435 256,470 C140,435 36,305 36,152 C50,52 140,22 256,22 Z" fill="url(#bezel-highlight)" />
+    
+    <!-- Layer 3: Dark Rim Divider -->
+    <path d="M256,32 C362,32 444,60 456,148 C456,288 362,410 256,444 C150,410 56,288 56,148 C68,60 150,32 256,32 Z" fill="#0b131f" />
+    
+    <!-- Layer 4: Inner Colored Core Fields -->
+    <!-- Left Core (Emerald Green) -->
+    <path d="M256,38 L256,438 C162,404 68,282 68,150 C78,70 162,38 256,38 Z" fill="url(#emerald-core)" />
+    
+    <!-- Right Core (Royal Blue) -->
+    <path d="M256,38 C350,38 434,70 444,150 C444,282 350,404 256,438 L256,38 Z" fill="url(#royal-core)" />
+    
+    <!-- Layer 5: Honeycomb Pattern Overlay -->
+    <!-- Left Honeycomb Overlay -->
+    <path d="M256,38 L256,438 C162,404 68,282 68,150 C78,70 162,38 256,38 Z" fill="url(#honeycomb)" />
+    
+    <!-- Right Honeycomb Overlay -->
+    <path d="M256,38 C350,38 434,70 444,150 C444,282 350,404 256,438 L256,38 Z" fill="url(#honeycomb)" />
+
+    <!-- Layer 6: Dynamic 3D Glass Gloss Reflection Overlay -->
+    <path d="M256,38 C350,38 434,70 444,150 C310,210 202,110 68,150 C78,70 162,38 256,38 Z" fill="url(#gloss-gradient)" />
+    
+    <!-- Layer 7: EMBOSSED 3D CODE SYMBOL (< / >) -->
+    <g stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <!-- 7a. 3D Under-Shadow Layer (gives deep physical elevation) -->
+      <g stroke="#030712" stroke-width="48" opacity="0.65">
+        <path d="M185,189 L100,260 L185,331" />
+        <path d="M327,189 L412,260 L327,331" />
+        <line x1="300" y1="139" x2="212" y2="381" />
+      </g>
+      
+      <!-- 7b. Secondary Accent / Bevel Rim Layer -->
+      <g stroke="#1e293b" stroke-width="42">
+        <path d="M185,187 L100,258 L185,329" />
+        <path d="M327,187 L412,258 L327,329" />
+        <line x1="300" y1="137" x2="212" y2="379" />
+      </g>
+
+      <!-- 7c. Main Metallic Silver Layer -->
+      <g stroke="url(#silver-code)" stroke-width="36">
+        <path d="M185,185 L100,256 L185,327" />
+        <path d="M327,185 L412,256 L327,327" />
+        <line x1="300" y1="135" x2="212" y2="377" />
+      </g>
+
+      <!-- 7d. Top Highlight Fine Gloss Line (Pure White, sits thin in center for high shine) -->
+      <g stroke="#ffffff" stroke-width="16" opacity="0.9">
+        <path d="M185,185 L100,256 L185,327" />
+        <path d="M327,185 L412,256 L327,327" />
+        <line x1="300" y1="135" x2="212" y2="377" />
+      </g>
+    </g>
+  </g>
+</svg>
+
+

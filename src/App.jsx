@@ -453,9 +453,6 @@ export default function App() {
                 <h1 className="text-xl md:text-2xl font-black tracking-tight font-display text-slate-900">
                   LeetShield
                 </h1>
-                <span className="hidden sm:inline-block text-[9px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded uppercase tracking-wider border border-emerald-100">
-                  Production-Ready Live Build
-                </span>
               </div>
               <p className="text-xs text-slate-500 font-semibold tracking-wide">
                 Advanced LeetCode Plagiarism & Duplicate Reviewer
