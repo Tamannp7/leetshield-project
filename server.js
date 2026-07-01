@@ -1728,6 +1728,11 @@ app.post("/api/leetcode/question-submissions", async (req, res) => {
 
 // Setup Vite Dev server or static asset serving
 async function startServer() {
+  if (process.env.VERCEL) {
+    console.log("Running in Vercel environment - skipping port binding and dev server");
+    return;
+  }
+
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
       server: { middlewareMode: true },
@@ -1744,11 +1749,9 @@ async function startServer() {
 
   console.log("Starting server...", PORT);
 
-  
   app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running on port ${PORT}`);
   });
-
 }
 
 startServer();
